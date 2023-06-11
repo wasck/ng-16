@@ -3,3 +3,73 @@
     Ng-16
   </mat-toolbar-row>
 </mat-toolbar>
+
+<div class="p-2">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h1>Standalone component migration and scaffolding</h1>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex flex-row justify-between">
+
+        <div class="p-6 rounded-md bg-slate-200">
+          <span class="capitalize text-xl text-gray-600">counter</span>
+          <app-counter></app-counter>
+        </div>
+
+        <div class="capitalize p-6 rounded-md bg-slate-200">
+          <span class="text-xl text-gray-600">scam counter</span>
+          <app-scam-counter></app-scam-counter>
+        </div>
+
+        <div class="capitalize p-6 rounded-md bg-slate-200">
+          <div class="text-xl text-gray-600">
+            standalone counter 
+          </div>
+          <app-standalone-counter ></app-standalone-counter>
+        </div>
+
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h1>Signals</h1>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="flex flex-row justify-between">
+
+        <div class="p-6 rounded-md bg-slate-200">
+          <span class="text-xl text-gray-600">
+            input output {{inputOutputCounter}}
+          </span>
+          <app-input-output (counter)="setInputOutputCounter($event)">
+          </app-input-output>
+        </div>
+
+        <div class="p-6 rounded-md bg-slate-200">
+          <span class="text-xl text-gray-600">
+            BehaviorSubject {{behaviorSubjectCounter$ | async}}
+          </span>
+          <app-behavior-subject>
+          </app-behavior-subject>
+        </div>
+
+        <div class="p-6 rounded-md bg-slate-200">
+          <span class="text-xl text-gray-600">
+            Signals {{signalCounter()}}
+          </span>
+          <app-signal>
+          </app-signal>
+        </div>
+
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
