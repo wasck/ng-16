@@ -1,0 +1,33 @@
+{
+  "name": "ng-esbuild-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "projects/ng-esbuild-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "projects/ng-esbuild-e2e/cypress.config.ts",
+        "devServerTarget": "ng-esbuild:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "ng-esbuild:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "ng-esbuild:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["projects/ng-esbuild-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["ng-esbuild"]
+}
